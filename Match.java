@@ -3,12 +3,14 @@ public class Match {
 
 	private String season;
 	private String nameOfGame;
+	private boolean isGameAtHome;
 	private int goalScored;
 	private int goalConceded;
 		
-	public Match(String season, String nameOfGame, int goalScored, int goalConceded) {
+	public Match(String season, String nameOfGame, boolean isGameAtHome, int goalScored, int goalConceded) {
 	    this.season = season;
 	    this.nameOfGame = nameOfGame;
+	    this.isGameAtHome = isGameAtHome;
 	    this.goalScored = goalScored;
 	    this.goalConceded = goalConceded;
 	}
@@ -29,6 +31,14 @@ public class Match {
 		this.nameOfGame = nameOfGame;
 	}
 	
+	public boolean getIsGameAtHome(){
+		return isGameAtHome;
+	}
+	
+	public void setIsGameAtHome(boolean isGameAtHome){
+		this.isGameAtHome = isGameAtHome;
+	}
+	
 	public int getGoalScored(){
 		return goalScored;
 	}
@@ -46,11 +56,14 @@ public class Match {
 	}
 	
 	public void infoAboutOneGame(){
-		System.out.println(season + ", " + nameOfGame + " " + goalScored + ":" + goalConceded);
+		if (isGameAtHome == true)
+			System.out.println(season + ", " + nameOfGame + " " + goalScored + ":" + goalConceded);
+		else
+			System.out.println(season + ", " + nameOfGame + " " + goalConceded + ":" + goalScored);
 	}
-//I want to show in console the only one match information	
+
 	public static void main (String [] args){
-		Match one = new Match("2019/20", "Shakhtar Donetsk-Manchester City", 0, 3);
+		Match one = new Match("2019/20", "Shakhtar Donetsk-Manchester City", true, 0, 3);
 		one.infoAboutOneGame();
 	}
 }
