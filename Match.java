@@ -48,7 +48,7 @@ public class Match {
 	public void infoAboutOneGame(){
 		System.out.println(season + ", " + nameOfGame + " " + goalScored + ":" + goalConceded);
 	}
-	
+//I want to show in console the only one match information	
 	public static void main (String [] args){
 		Match one = new Match("2019/20", "Shakhtar Donetsk-Manchester City", 0, 3);
 		one.infoAboutOneGame();
