@@ -2,17 +2,21 @@
 public class Match {
 
 	private String season;
-	private String nameOfGame;
-	private boolean isGameAtHome;
-	private int goalScored;
-	private int goalConceded;
+	private String round;
+	private String nameOfGroup;
+	private String homeTeam;
+	private String awayTeam;
+	private int goalScoredHomeTeam;
+	private int goalScoredAwayTeam;
 		
-	public Match(String season, String nameOfGame, boolean isGameAtHome, int goalScored, int goalConceded) {
+	public Match(String season, String round, String nameOfGroup, String homeTeam, String awayTeam, int goalScoredHomeTeam, int goalScoredAwayTeam) {
 	    this.season = season;
-	    this.nameOfGame = nameOfGame;
-	    this.isGameAtHome = isGameAtHome;
-	    this.goalScored = goalScored;
-	    this.goalConceded = goalConceded;
+	    this.round = round;
+	    this.nameOfGroup = nameOfGroup;
+	    this.homeTeam = homeTeam;
+	    this.awayTeam = awayTeam;
+	    this.goalScoredHomeTeam = goalScoredHomeTeam;
+	    this.goalScoredAwayTeam = goalScoredAwayTeam;
 	}
 	
 	public String getSeason(){
@@ -23,49 +27,63 @@ public class Match {
 		this.season = season;
 	}
 	
-	public String getNameOfGame(){
-		return nameOfGame;
+	public String getRound(){
+		return round;
 	}
 	
-	public void setNameOfGame(String nameOfGame){
-		this.nameOfGame = nameOfGame;
+	public void setRound(String round){
+		this.round = round;
 	}
 	
-	public boolean getIsGameAtHome(){
-		return isGameAtHome;
+	public String getNameOfGroup(){
+		return nameOfGroup;
 	}
 	
-	public void setIsGameAtHome(boolean isGameAtHome){
-		this.isGameAtHome = isGameAtHome;
+	public void setNameOfGroup(String nameOfGroup){
+		this.nameOfGroup = nameOfGroup;
 	}
 	
-	public int getGoalScored(){
-		return goalScored;
+	public String getHomeTeam(){
+		return homeTeam;
 	}
 	
-	public void setGoalScored(int goalScored){
-		this.goalScored = goalScored;
+	public void setHomeTeam(String homeTeam){
+		this.homeTeam = homeTeam;
 	}
 	
-	public int getGoalConceded(){
-		return goalConceded;
+	public String getAwayTeam(){
+		return awayTeam;
 	}
 	
-	public void setGoalConceded(int goalConceded){
-		this.goalConceded = goalConceded;
+	public void setAwayTeam(String awayTeam){
+		this.awayTeam = awayTeam;
+	}
+	
+	public int getGoalScoredHomeTeam(){
+		return goalScoredHomeTeam;
+	}
+	
+	public void setGoalScoredHomeTeam(int goalScoredHomeTeam){
+		this.goalScoredHomeTeam = goalScoredHomeTeam;
+	}
+	
+	public int getGoalScoredAwayTeam(){
+		return goalScoredAwayTeam;
+	}
+	
+	public void setGoalScoredAwayTeam(int goalScoredAwayTeam){
+		this.goalScoredAwayTeam = goalScoredAwayTeam;
 	}
 	
 	public void infoAboutOneGame(){
-		if (isGameAtHome)
-			System.out.println(season + ", " + nameOfGame + " " + goalScored + ":" + goalConceded);
-		else
-			System.out.println(season + ", " + nameOfGame + " " + goalConceded + ":" + goalScored);
+		System.out.println(season + ", "  + round + ", " + nameOfGroup + ", " + homeTeam + " - " + awayTeam + " " + goalScoredHomeTeam + ":" + goalScoredAwayTeam);
+		
 	}
 
 	public static void main (String [] args){
-		Match one = new Match("2019/20", "Shakhtar Donetsk-Manchester City", true, 0, 3);
+		Match one = new Match("2019/20", "Group stage", "Group C", "Shakhtar", "Manchester City", 0, 3);
 		one.infoAboutOneGame();
-		Match two = new Match("2019/20", "Atalanta-Shakhtar Donetsk", false, 2, 1);
+		Match two = new Match("2019/20", "Group stage", "Group C", "Atalanta", "Shakhtar Donetsk", 1, 2);
 		two.infoAboutOneGame();
 	}
 }
