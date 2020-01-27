@@ -56,7 +56,7 @@ public class Match {
 	}
 	
 	public void infoAboutOneGame(){
-		if (isGameAtHome == true)
+		if (isGameAtHome)
 			System.out.println(season + ", " + nameOfGame + " " + goalScored + ":" + goalConceded);
 		else
 			System.out.println(season + ", " + nameOfGame + " " + goalConceded + ":" + goalScored);
@@ -65,5 +65,7 @@ public class Match {
 	public static void main (String [] args){
 		Match one = new Match("2019/20", "Shakhtar Donetsk-Manchester City", true, 0, 3);
 		one.infoAboutOneGame();
+		Match two = new Match("2019/20", "Atalanta-Shakhtar Donetsk", false, 2, 1);
+		two.infoAboutOneGame();
 	}
 }
