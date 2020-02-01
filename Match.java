@@ -80,10 +80,9 @@ public class Match {
 		
 	}
 
-	public static void main (String [] args){
-		Match one = new Match("2019/20", "Group stage", "Group C", "Shakhtar", "Manchester City", 0, 3);
-		one.infoAboutOneGame();
-		Match two = new Match("2019/20", "Group stage", "Group C", "Atalanta", "Shakhtar Donetsk", 1, 2);
-		two.infoAboutOneGame();
+	@Override
+	public String toString() {
+		return season + ", "  + round + ", " + nameOfGroup + ", " + homeTeam + " - " + awayTeam + " " + goalScoredHomeTeam + ":" + goalScoredAwayTeam;
 	}
+
 }
