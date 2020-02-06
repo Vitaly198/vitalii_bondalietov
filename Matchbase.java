@@ -1,15 +1,18 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Matchbase {
 	
-	private ArrayList<Match> matches = new ArrayList<Match>();
+	private List<Match> matches = new ArrayList<Match>();
 	
 	public void addMatchToMatchbase(Match match){
 		matches.add(match);
 	}
 	
 	public void infoAboutAllGames(){
-		System.out.println(matches);
+		for (int i = 0; i < matches.size(); i++) {
+		System.out.println(matches.get(i));
+		}
 	}
 	
 }
