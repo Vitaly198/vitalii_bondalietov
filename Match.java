@@ -77,13 +77,66 @@ public class Match {
 	
 	public void infoAboutOneGame(){
 		System.out.println(season + ", "  + round + ", " + nameOfGroup + ", " + homeTeam + " - " + awayTeam + " " + goalScoredHomeTeam + ":" + goalScoredAwayTeam);
-		
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((awayTeam == null) ? 0 : awayTeam.hashCode());
+		result = prime * result + goalScoredAwayTeam;
+		result = prime * result + goalScoredHomeTeam;
+		result = prime * result + ((homeTeam == null) ? 0 : homeTeam.hashCode());
+		result = prime * result + ((nameOfGroup == null) ? 0 : nameOfGroup.hashCode());
+		result = prime * result + ((round == null) ? 0 : round.hashCode());
+		result = prime * result + ((season == null) ? 0 : season.hashCode());
+		return result;
 	}
 
-	public static void main (String [] args){
-		Match one = new Match("2019/20", "Group stage", "Group C", "Shakhtar", "Manchester City", 0, 3);
-		one.infoAboutOneGame();
-		Match two = new Match("2019/20", "Group stage", "Group C", "Atalanta", "Shakhtar Donetsk", 1, 2);
-		two.infoAboutOneGame();
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Match other = (Match) obj;
+		if (awayTeam == null) {
+			if (other.awayTeam != null)
+				return false;
+		} else if (!awayTeam.equals(other.awayTeam))
+			return false;
+		if (goalScoredAwayTeam != other.goalScoredAwayTeam)
+			return false;
+		if (goalScoredHomeTeam != other.goalScoredHomeTeam)
+			return false;
+		if (homeTeam == null) {
+			if (other.homeTeam != null)
+				return false;
+		} else if (!homeTeam.equals(other.homeTeam))
+			return false;
+		if (nameOfGroup == null) {
+			if (other.nameOfGroup != null)
+				return false;
+		} else if (!nameOfGroup.equals(other.nameOfGroup))
+			return false;
+		if (round == null) {
+			if (other.round != null)
+				return false;
+		} else if (!round.equals(other.round))
+			return false;
+		if (season == null) {
+			if (other.season != null)
+				return false;
+		} else if (!season.equals(other.season))
+			return false;
+		return true;
 	}
+
+	@Override
+	public String toString() {
+		return season + ", "  + round + ", " + nameOfGroup + ", " + homeTeam + " - " + awayTeam + " " + goalScoredHomeTeam + ":" + goalScoredAwayTeam;
+	}
+
 }
