@@ -13,9 +13,11 @@ public class Matchbase {
 	}
 	
 	public void getOneGroup(BufferedReader reader) throws IOException {
-		System.out.println("Enter the season, round and name of group: ");
+		System.out.println("Enter the necessary season: ");
 		String season = reader.readLine();
+		System.out.println("Enter the necessary round: ");
 		String round = reader.readLine();
+		System.out.println("Enter the necessary name of group: ");
 		String nameOfGroup = reader.readLine();
 		for (int i = 0; i < matches.size(); i++) {
 			if (matches.get(i).getSeason().equals(season) && matches.get(i).getRound().equals(round) && matches.get(i).getNameOfGroup().equals(nameOfGroup)) {
