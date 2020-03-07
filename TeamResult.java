@@ -1,6 +1,7 @@
 
 public class TeamResult {
 
+	private String teamName;
 	private int games;
 	private int wins;
 	private int draws;
@@ -8,8 +9,18 @@ public class TeamResult {
 	private int goalsScored;
 	private int goalsConceded;
 	private int points;
+	private int plusOrMinus;
+	
+	public TeamResult() {
+		
+	}
+	
+	public TeamResult(String teamName) {
+		this.teamName = teamName;
+	}
 
-	public TeamResult(int games, int wins, int draws, int loses, int goalsScored, int goalsConceded, int points) {
+	public TeamResult(String teamName, int games, int wins, int draws, int loses, int goalsScored, int goalsConceded, int points, int plusOrMinus) {
+		this.teamName = teamName;
 		this.games = games;
 		this.wins = wins;
 		this.draws = draws;
@@ -17,6 +28,15 @@ public class TeamResult {
 		this.goalsScored = goalsScored;
 		this.goalsConceded = goalsConceded;
 		this.points = points;
+		this.plusOrMinus = plusOrMinus;
+	}
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 	public int getGames() {
@@ -74,16 +94,22 @@ public class TeamResult {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+	
+	public int getPlusOrMinus() {
+		return plusOrMinus;
+	}
+
+	public void setPlusOrMinus(int plusOrMinus) {
+		this.plusOrMinus = plusOrMinus;
+	}
 
 	public void infoAboutOneTeam() {
-		System.out.println(games + "  " + wins + " " + draws + " " + loses + "  " + goalsScored + "-" + goalsConceded
-				+ "  " + points);
+		System.out.printf("%-15s %-2d %-2d %-2d %-2d %2d-%-2d %-2d", teamName, games, wins, draws, loses, goalsScored, goalsConceded, points);
 	}
 
 	@Override
 	public String toString() {
-		return games + "  " + wins + " " + draws + " " + loses + "  " + goalsScored + "-" + goalsConceded + "  "
-				+ points;
+		return String.format("%-15s %-2d %-2d %-2d %-2d %2d-%-2d %-2d", teamName, games, wins, draws, loses, goalsScored, goalsConceded, points);
 	}
 
 }

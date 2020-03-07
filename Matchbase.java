@@ -6,25 +6,20 @@ import java.util.List;
 public class Matchbase {
 	
 	private List<Match> matches = new ArrayList<Match>();
-	private List<Match> groupChoice = new ArrayList<Match>();
-	
+		
 	public void addMatchToMatchbase(Match match){
 		matches.add(match);
 	}
 	
-	public void getOneGroup(BufferedReader reader) throws IOException {
-		System.out.println("Enter the necessary season: ");
-		String season = reader.readLine();
-		System.out.println("Enter the necessary round: ");
-		String round = reader.readLine();
-		System.out.println("Enter the necessary name of group: ");
-		String nameOfGroup = reader.readLine();
-		for (int i = 0; i < matches.size(); i++) {
+	public List<Match> getOneGroup(String season, String round, String nameOfGroup) {
+		List<Match> groupChoice = new ArrayList<Match>();
+			for (int i = 0; i < matches.size(); i++) {
 			if (matches.get(i).getSeason().equals(season) && matches.get(i).getRound().equals(round) && matches.get(i).getNameOfGroup().equals(nameOfGroup)) {
 				groupChoice.add(matches.get(i));
 				}
+			}
+			return groupChoice;
 		}
-	}
 	
 	public void infoAboutAllGames(){
 		if (matches.isEmpty()) {
@@ -36,14 +31,5 @@ public class Matchbase {
 			}
 	}
 	
-	public void infoAboutGamesInOneGroup(){
-		if (groupChoice.isEmpty()) {
-			System.out.println("Not found matches.");
-			}
-			else
-			for (int i = 0; i < groupChoice.size(); i++) {
-			System.out.println(groupChoice.get(i));
-			}
-	}
-	
+		
 }
